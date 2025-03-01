@@ -17,20 +17,14 @@ function ClipBoard() {
         setCopyOk(null)
     }
 
-    const copy = async () => {
-        try{
-            await navigator.clipboard.writeText(text)
-        }catch{
-
-        }
-    }
+   
 
 
   return (
     <div>
         <textarea className='inputText' rows="20" cols="50" value={text} onChange={handleTextChange} name="" id=""></textarea>
         <button className='btn'  onClick={copy}>Copy</button>
-        <button className='btn' onClick={clear}>Clear</button>
+        
     </div>
   )
 }

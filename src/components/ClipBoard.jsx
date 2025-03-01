@@ -3,7 +3,7 @@ import './ClipBoard.css'
 function ClipBoard() {
 
     const [text, setText] = useState('')
-    const [copyOk,setCopyOk] = useState(null)
+   
 
     const handleTextChange = (event) => {
         setText(event.target.value)
@@ -13,9 +13,14 @@ function ClipBoard() {
 
     }
 
-    const handleTextClear = (event) =>{
-        setCopyOk(null)
-    }
+    const copy = async () => {
+        try {
+          await navigator.clipboard.writeText(text)
+          setCopyOk(true)
+        } catch {
+          setCopyOk(false)
+        }
+      }
 
    
 
